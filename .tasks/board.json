@@ -1,0 +1,93 @@
+{
+  "project_name": "svralabs-luxury-rentals",
+  "architecture_summary": "React SPA. React Router for nav. Three pages: catalog, detail, checkout. Shared car data via src/data/cars.js. Tailwind styling assumed.",
+  "tickets": [
+    {
+      "id": "TASK-001",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Car data module",
+      "description": "Static array of luxury cars: id, name, brand, price/day, image, specs, description. Export getAll and getById.",
+      "target_files": [
+        "src/data/cars.js"
+      ],
+      "acceptance_criteria": [
+        "Export cars array with 6+ entries",
+        "Export getCarById(id) helper",
+        "Each car has id, name, brand, pricePerDay, image, specs object, description"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-002",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Catalog page",
+      "description": "Grid of car cards. Each card shows image, name, brand, price/day, View Details link to /cars/:id. Hero header with title.",
+      "target_files": [
+        "src/pages/Catalog.jsx"
+      ],
+      "acceptance_criteria": [
+        "Renders all cars from src/data/cars.js",
+        "Each card links to /cars/:id via React Router Link",
+        "Responsive grid layout",
+        "Luxury dark theme styling"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-003",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Vehicle detail page",
+      "description": "Read :id from route params. Show large image, full specs, description, price. Reserve button links to /checkout/:id.",
+      "target_files": [
+        "src/pages/CarDetail.jsx"
+      ],
+      "acceptance_criteria": [
+        "Uses useParams to load car via getCarById",
+        "Shows 404-style message if car not found",
+        "Displays image, name, brand, price, specs list, description",
+        "Reserve Now button navigates to /checkout/:id"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-004",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "Reservation checkout page",
+      "description": "Form: full name, email, phone, pickup date, return date, pickup location. Show selected car summary and total price (days * pricePerDay). Submit shows confirmation state.",
+      "target_files": [
+        "src/pages/Checkout.jsx"
+      ],
+      "acceptance_criteria": [
+        "Loads car by :id param",
+        "Native HTML5 validation on required fields (name, email, phone, dates)",
+        "Computes total from date range",
+        "On submit shows success confirmation without page reload",
+        "Link back to catalog"
+      ],
+      "status": "DONE"
+    },
+    {
+      "id": "TASK-005",
+      "role": "frontend",
+      "model": "hermes-auto",
+      "title": "App shell and routing",
+      "description": "BrowserRouter with routes: / -> Catalog, /cars/:id -> CarDetail, /checkout/:id -> Checkout. Top nav bar with brand logo and Catalog link.",
+      "target_files": [
+        "src/App.jsx"
+      ],
+      "acceptance_criteria": [
+        "Uses react-router-dom BrowserRouter",
+        "Three routes wired to correct components",
+        "Persistent nav header across all pages",
+        "Footer with SVRALABS credit"
+      ],
+      "status": "DONE"
+    }
+  ],
+  "status": "DONE",
+  "updated_at": "2026-08-20 01:58:31"
+}
