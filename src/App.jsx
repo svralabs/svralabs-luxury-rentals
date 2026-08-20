@@ -1,3 +1,4 @@
+import { StoreProvider } from './context/StoreContext';
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Catalog from './pages/Catalog';
@@ -8,6 +9,7 @@ import { Sparkles, Globe, Mail, ExternalLink } from 'lucide-react';
 export default function App() {
   return (
     <BrowserRouter>
+    <StoreProvider>
       <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-amber-500 selection:text-black">
         {/* Navigation Header */}
         <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
@@ -45,6 +47,7 @@ export default function App() {
           </div>
         </footer>
       </div>
-    </BrowserRouter>
+        </StoreProvider>
+</BrowserRouter>
   );
 }
